@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      List of films
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar showCancelButton="never" placeHolder="Film name" type="text" [(ngModel)]="filmName"
+    (keydown.enter)="searchFilms()"></ion-searchbar>
+  <ion-list *ngIf="films != null">
+    <ion-item *ngFor="let film of films" button (click)="navigation(film)">
+      <ion-label>
+        {{ film.Title }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="block" (click)="searchFilms()">Search films</ion-button>
+</ion-footer>

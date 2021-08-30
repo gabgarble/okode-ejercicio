@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="film != null">
+    <ion-row>
+      <ion-col col-3>
+        <img src="{{film.Poster}}"/>
+      </ion-col>
+      <ion-col col-9>
+        <ion-card-header>
+          <ion-card-subtitle>{{ film.Type }}</ion-card-subtitle>
+          <ion-card-title>{{ film.Title }}, {{ film.Released }}</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-card-content>
+          {{film.Plot}}
+        </ion-card-content>
+    </ion-row>
+  </ion-card>
+</ion-content>

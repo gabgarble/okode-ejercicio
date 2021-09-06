@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { FilmsService } from '../services/films-service.service'
+import { FilmsService } from '../services/films.service'
 import { Film } from '../models/film.model';
+import { ArrayResponse } from '../models/response.model';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { Film } from '../models/film.model';
 export class HomePage {
 
   public films: Film[];
+  public response: ArrayResponse;
   public filmName: string;
 
   private key = "740a045";
@@ -22,6 +24,8 @@ export class HomePage {
       this.filmsService.getFilmsBySearch(this.filmName, this.key).subscribe(
         data => {
           this.films = data.Search;
+          console.log(data);
+          console.log(this.films);
         },
         error => {
           console.error(error);

@@ -15,13 +15,11 @@ export class HomePage {
   public response: ArrayResponse;
   public filmName: string;
 
-  private key = "740a045";
-
   constructor(private router: Router, private filmsService: FilmsService) { }
 
   public searchFilms() {
     if (this.filmName != null) {
-      this.filmsService.getFilmsBySearch(this.filmName, this.key).subscribe(
+      this.filmsService.getFilmsBySearch(this.filmName).subscribe(
         data => {
           this.films = data.Search;
           console.log(data);

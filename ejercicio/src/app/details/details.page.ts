@@ -13,8 +13,6 @@ export class DetailsPage implements OnInit {
   public film: Film;
   public filmId: string;
 
-  private key = "740a045";
-
   constructor(private route: ActivatedRoute, private router: Router, private filmsService: FilmsService) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -28,7 +26,7 @@ export class DetailsPage implements OnInit {
   }
 
   public getFilm() {
-    this.filmsService.getFilmById(this.filmId, this.key).subscribe(
+    this.filmsService.getFilmById(this.filmId).subscribe(
       data => {
         this.film = data;
       },
